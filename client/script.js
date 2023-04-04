@@ -29,6 +29,17 @@ function typeText(element, text) {
         }
     }, 20)
 }
+const chatCoontainer = document.getElementById('chat_container');
+
+// Function to scroll to the bottom of the chat container
+function scrollToBottom() {
+    chatCoontainer.scrollTop = chatCoontainer.scrollHeight;
+}
+
+// Add an event listener to the chat container for when new content is added
+chatCoontainer.addEventListener('DOMNodeInserted', function() {
+    scrollToBottom();
+});
 
 function generateUniqueId() {
     const timestamp = Date.now();
