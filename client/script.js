@@ -84,17 +84,7 @@ const handleSubmit = async (e) => {
 
     loader(messageDiv)
 
-    const response = await fetch("https://jerry-gpt.onrender.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: data.get("prompt"),
-      }),
-    });
-
-    // const response = await fetch("http://localhost:3000/", {
+    // const response = await fetch("https://jerry-gpt.onrender.com", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -103,6 +93,16 @@ const handleSubmit = async (e) => {
     //     prompt: data.get("prompt"),
     //   }),
     // });
+
+    const response = await fetch("http://localhost:3000/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: data.get("prompt"),
+      }),
+    });
 
     clearInterval(loadInterval)
     messageDiv.innerHTML = '';
