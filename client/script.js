@@ -31,12 +31,11 @@ function typeText(element, text) {
 }
 const chatCoontainer = document.getElementById('chat_container');
 
-// Function to scroll to the bottom of the chat container
+
 function scrollToBottom() {
     chatCoontainer.scrollTop = chatCoontainer.scrollHeight;
 }
 
-// Add an event listener to the chat container for when new content is added
 chatCoontainer.addEventListener('DOMNodeInserted', function() {
     scrollToBottom();
 });
@@ -94,6 +93,16 @@ const handleSubmit = async (e) => {
         prompt: data.get("prompt"),
       }),
     });
+
+    // const response = await fetch("http://localhost:3000/", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     prompt: data.get("prompt"),
+    //   }),
+    // });
 
     clearInterval(loadInterval)
     messageDiv.innerHTML = '';
